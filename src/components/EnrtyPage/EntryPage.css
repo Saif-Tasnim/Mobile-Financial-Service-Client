@@ -1,0 +1,9 @@
+.tab.react-tabs__tab--selected {
+    background-color: #f89b29; 
+    color: white;
+    font-weight: bold;
+  }
+
+.no-border{
+  border: 0;
+}
