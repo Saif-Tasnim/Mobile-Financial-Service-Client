@@ -15,7 +15,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   let balance, updateData, active;
 
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/dashboard";
 
   const onSubmit = async (data) => {
     setBtnDisabled(true);

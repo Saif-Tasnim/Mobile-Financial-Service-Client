@@ -19,7 +19,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/dashboard";
 
   const onSubmit = async (data) => {
     setBtnDisabled(true);
@@ -34,8 +34,10 @@ const SignIn = () => {
     }
 
     try {
-      signIn(data);
-      navigate(from, { replace: true });
+      const res = await signIn(data);
+      if (res.data) {
+        navigate(from, { replace: true });
+      }
     } catch (error) {
       Swal.fire({
         icon: "error",
