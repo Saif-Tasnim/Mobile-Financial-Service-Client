@@ -5,6 +5,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { JWT_CONFIG } from "../../../config/jwt_auth";
+import Reverse from "../../Shared/Reverse/Reverse";
 
 const SendMoney = () => {
   const {
@@ -74,6 +75,7 @@ const SendMoney = () => {
 
   return (
     <div>
+      <Reverse />
       <Heading title="Send Money" />
 
       <div className="flex justify-center my-5">

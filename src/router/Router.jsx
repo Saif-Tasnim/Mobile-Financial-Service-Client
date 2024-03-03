@@ -8,6 +8,7 @@ import Features from "../components/Features/Features";
 import SendMoney from "../components/User/SendMoney/SendMoney";
 import CashOut from "../components/User/CashOut/CashOut";
 import UserTransaction from "../components/User/UserTransaction/UserTransaction";
+import UserRoute from "./UserRoute";
 
 export const router = createBrowserRouter([
   {
@@ -35,15 +36,27 @@ export const router = createBrowserRouter([
       },
       {
         path: "user/send-money",
-        element: <SendMoney />,
+        element: (
+          <UserRoute>
+            <SendMoney />
+          </UserRoute>
+        ),
       },
       {
         path: "user/cash-out",
-        element: <CashOut />,
+        element: (
+          <UserRoute>
+            <CashOut />
+          </UserRoute>
+        ),
       },
       {
         path: "user/transaction",
-        element: <UserTransaction />,
+        element: (
+          <UserRoute>
+            <UserTransaction />
+          </UserRoute>
+        ),
       },
     ],
   },

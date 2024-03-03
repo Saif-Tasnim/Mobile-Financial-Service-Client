@@ -1,6 +1,8 @@
-import { Eye,EyeOff  } from "lucide-react";
+import { Eye, EyeOff, Undo2, Disc3 } from "lucide-react";
 
 export const Icon = {
   Eye,
-  EyeOff 
+  EyeOff,
+  Undo2,
+  Disc3,
 };

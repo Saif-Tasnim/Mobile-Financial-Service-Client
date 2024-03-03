@@ -1,20 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const UserRoute = ({ children }) => {
   const location = useLocation();
   const { user, loading } = useContext(AuthContext);
-  const isUser = user?.role === "user" && user?.active === "open";
 
   if (loading) {
     return "loading";
   }
+  
+  const isUser = user?.role === "user" && user?.active === "open";
 
-  if (user && isUser) {
-    children;
-  }
-  return <Navigate to="/" state={{ from: location }} replace></Navigate>;
+  return isUser ? (
+    children
+  ) : (
+    <Navigate to="/signin" state={{ from: location }} replace />
+  );
 };
 
 export default UserRoute;

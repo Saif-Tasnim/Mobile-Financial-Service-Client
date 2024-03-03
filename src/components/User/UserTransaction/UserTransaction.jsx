@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import Heading from "../../Shared/Heading/Heading";
 import { AuthContext } from "../../../provider/AuthProvider";
 import axios from "axios";
+import Reverse from "../../Shared/Reverse/Reverse";
 
 const UserTransaction = () => {
   const { user } = useContext(AuthContext);
@@ -16,19 +17,25 @@ const UserTransaction = () => {
       return res.data.data;
     },
   });
+
   return (
     <div>
+      <Reverse />
       <Heading title={"My Transaction"} />
 
-      <div className="w-full mx-7">
-        {transaction.map((td) => (
-          <div className="flex justify-between items-center">
-            <p>{td.reciever}</p>
-            <p>{td.amount}</p>
-            <p>{td.transactionId}</p>
-          </div>
-        ))}
-      </div>
+      {transaction.length === 0 ? (
+        <div className="text-cancel text-head-2 text-center"> You have not transaction yet !!! </div>
+      ) : (
+        <div className="w-full mx-10">
+          {transaction.map((td) => (
+            <div className="flex justify-between items-center">
+              <p>{td.reciever}</p>
+              <p>{td.amount}</p>
+              <p>{td.transactionId}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "../../Shared/Icon/Icon";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import axios from "axios";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const SignIn = () => {
